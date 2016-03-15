@@ -1,0 +1,16 @@
+{
+  "name": "skills",
+  "version": "1.0.0",
+  "description": "Skills service",
+  "main": "index.js",
+  "author": "Douglas Nomizo",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "express": "^4.13.4"
+  },
+  "scripts": {},
+  "dependencies": {
+    "gremlin": "^2.1.0"
+  }
+}

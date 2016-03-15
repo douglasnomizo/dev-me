@@ -1,0 +1,20 @@
+titan:
+  container_name: skills_titan
+  image: elubow/titan-gremlin 
+  links:
+    - elasticsearch
+    - cassandra
+  ports:
+    - "8182:8182"
+
+cassandra:
+  container_name: skills_cs
+  image: cassandra:2.0
+  volumes:
+    - "$PWD/cassandra/data:/var/lib/cassandra/data"
+
+elasticsearch:
+  container_name: skills_es
+  image: elasticsearch:1.5
+  volumes:
+    - "$PWD/elasticsearch/data:/usr/share/elasticsearch/data"
