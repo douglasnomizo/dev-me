@@ -1,0 +1,21 @@
+skills_titan:
+  container_name: skills_titan
+  image: douglasnomizo/titan-gremlin-websockets:latest
+  links:
+    - es_titan
+    - cs_titan
+  ports:
+    - "8182:8182"
+
+cs_titan:
+  container_name: cs_titan
+  image: cassandra:2.0
+  volumes:
+    - "$PWD/cs_titan/data:/var/lib/cassandra/data"
+
+es_titan:
+  container_name: es_titan
+  image: elasticsearch:1.5
+  volumes:
+    - "$PWD/es_titan/data:/usr/share/elasticsearch/data"
+

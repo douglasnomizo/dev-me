@@ -1,4 +1,6 @@
 es_neo4j/
 neo4j/data/
-node_modules/
-titan/
+poc_titan/cs_titan/
+poc_titan/es_titan/
+server/node_modules/
+
