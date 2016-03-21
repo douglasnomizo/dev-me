@@ -1,2 +1,4 @@
-cassandra
-elasticsearch
+es_neo4j/
+neo4j/data/
+node_modules/
+titan/

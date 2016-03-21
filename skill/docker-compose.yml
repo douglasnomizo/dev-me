@@ -1,20 +1,21 @@
-titan:
-  container_name: skills_titan
-  image: elubow/titan-gremlin 
+skills_neo4j:
+  container_name: skills_neo4j
+  image: neo4j:latest
   links:
-    - elasticsearch
-    - cassandra
+    - es_neo4j 
   ports:
-    - "8182:8182"
-
-cassandra:
-  container_name: skills_cs
-  image: cassandra:2.0
+    - "7474:7474"
   volumes:
-    - "$PWD/cassandra/data:/var/lib/cassandra/data"
+    - "$PWD/neo4j/data:/data"
+    - "$PWD/neo4j/conf:/conf"
+    - "$PWD/neo4j/plugins:/plugins"
 
-elasticsearch:
-  container_name: skills_es
-  image: elasticsearch:1.5
+es_neo4j:
+  container_name: es_neo4j
+  command: elasticsearch
+  image: elasticsearch:2
   volumes:
-    - "$PWD/elasticsearch/data:/usr/share/elasticsearch/data"
+    - "$PWD/es_neo4j/data:/usr/share/elasticsearch/data"
+  ports:
+    - "9200:9200"
+    - "9300:9300"
