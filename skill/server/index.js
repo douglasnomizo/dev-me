@@ -4,8 +4,6 @@ var request = require('request');
 
 app = express();
 
-app.use(bodyParser.json())
-
 require('./routes/router.js')(app);
 
 app.listen(3000, function() {
