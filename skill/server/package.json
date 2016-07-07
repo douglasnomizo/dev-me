@@ -6,16 +6,18 @@
   "author": "Douglas Nomizo",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.6.5",
-    "express": "^4.13.4"
+    "babel-cli": "^6.6.5"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
-    "body-parser": "^1.15.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
     "fs": "0.0.2",
     "http-proxy": "^1.13.2",
     "neo4j": "^2.0.0-RC2",
     "nodemon": "^1.9.1",
-    "yamljs": "^0.2.6"
+    "yamljs": "^0.2.8"
   }
 }

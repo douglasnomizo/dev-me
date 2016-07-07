@@ -1,5 +1,5 @@
 var db = require('../database/neo4j_connection.js');
-var parser = require('body-parser').urlencoded({ extended: false });
+var parser = require('body-parser').json();
 
 var router = function (app) {
 

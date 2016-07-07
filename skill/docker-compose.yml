@@ -1,21 +1,32 @@
-skills_neo4j:
-  container_name: skills_neo4j
-  image: neo4j:latest
-  links:
-    - es_neo4j 
-  ports:
-    - "7474:7474"
-  volumes:
-    - "$PWD/neo4j/data:/data"
-    - "$PWD/neo4j/conf:/conf"
-    - "$PWD/neo4j/plugins:/plugins"
+version: '2'
+services:
+  neo4j:
+    container_name: skills_neo4j
+    image: neo4j:latest
+    links:
+      - es
+    ports:
+      - "7474:7474"
+    volumes:
+      - "$PWD/neo4j/data:/data"
+      - "$PWD/neo4j/conf:/conf"
+      - "$PWD/neo4j/plugins:/plugins"
 
-es_neo4j:
-  container_name: es_neo4j
-  command: elasticsearch
-  image: elasticsearch:2
-  volumes:
-    - "$PWD/es_neo4j/data:/usr/share/elasticsearch/data"
-  ports:
-    - "9200:9200"
-    - "9300:9300"
+  es:
+    container_name: skills_es
+    command: elasticsearch
+    image: elasticsearch:2
+    volumes:
+      - "$PWD/es_neo4j/data:/usr/share/elasticsearch/data"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  webapp:
+    image: douglasnomizo/skills_webapp:latest
+    container_name: skills_webapp
+    ports:
+      - "3000:3000"
+    links:
+      - neo4j
+      - es
